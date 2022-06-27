@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/estilos.css">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <div class="titulo">
+        <h1>Ejercicio 1</h1>
+    </div>
+    <div class="tarjeta">
+        <div class="card espaciotarjeta">
+            <form id="formulario">
+                <div class="mb-3" id="nom">
+                  <label class="form-label">Ingrese el nombre del estudiante</label>
+                  <input type="text" class="form-control" id="nombrealum" onkeypress="return soloLetras(event)" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Materias</label>
+                    <input type="text" class="form-control mb-3" id="materia" placeholder="Ingrese materia" onkeypress="return soloLetras(event)" >
+                    <input type="number" class="form-control mb-3" id="valormateria" placeholder="Ingrese valor de la materia">
+                    <button type="button" class="btn btn-primary btn-small color btn-agregar" id="agregar" onclick="capturar();">Agregar</button>
+                  </div>
+                <div>
+                    <button type="button" class="btn btn-primary btn-small color" id="enviar" onclick="descuento();">Descuento</button>
+                    <button type="button" class="btn btn-primary btn-small color" id="recargar">Recargar Página</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+    <div class="seccionresultado" id="divresultado">
+      <p id="resultado"></p>
+  </div>   
+    <div id="divtabla"> 
+          <table class="table table-bordered csstabla" id="tabla">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Materia</th>
+                <th scope="col">Costo</th>
+              </tr>
+            </thead>
+          </table>
+    </div> 
+</body>
+<script src="index.js"></script>
+<script src="bootstrap-5.0.2-dist/js/popper.min.js"></script>
+<script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</html>
