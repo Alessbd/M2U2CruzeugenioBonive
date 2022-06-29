@@ -21,8 +21,8 @@ function capturar(){
         //comprueba que se envie un valor numerico al costo
         let valorCapturar = document.getElementById('valormateria').value
         costomate = parseInt(valorCapturar)
-        if((costomate === null) || (costomate === ' ') || (isNaN(costomate))){
-            alert("Debe ingresar un costo")
+        if((costomate === null) || (costomate === ' ') || (costomate <= 0) || (isNaN(costomate))){
+            alert("Debe ingresar un costo valido")
         }else{
             nuevamateria = new Materia(materiaCapturar,costomate) //sin colocar let se vuelve en una variable global
             //console.log(nuevamateria)
