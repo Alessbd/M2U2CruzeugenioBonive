@@ -5,7 +5,11 @@ const papeleria = 20000
 const carnet = 8000
 resultado=0
 pago=0
+pagomaterias=0
+calculodescuento=0
+
 document.getElementById("divtabla").hidden = true;  
+
 function capturar(){
     //console.log("capturado")
     //Constructor de materias
@@ -21,6 +25,8 @@ function capturar(){
         //comprueba que se envie un valor numerico al costo
         let valorCapturar = document.getElementById('valormateria').value
         costomate = parseInt(valorCapturar)
+        //Incrementa en 1 el valor del codigo de la materia para validar        
+
         if((costomate === null) || (costomate === ' ') || (costomate <= 0) || (isNaN(costomate))){
             alert("Debe ingresar un costo valido")
         }else{
@@ -30,7 +36,9 @@ function capturar(){
                 if(i==7){
                     alert("No puede inscribir mas materias")
                 }else{
-                    agregar() 
+                    agregar()
+                    //Guarda el valor del pago
+                    pago = costomate + pago 
                     //Resetea el formulario para agregar mas datos
                     document.getElementById('formulario').reset()
                      //Oculta el campo nombre
@@ -45,8 +53,9 @@ function capturar(){
 }
 //funcion para sacar el descuento
 function descuento(){
-    pago = costomate + pago
-        descuentototal= (pago + papeleria + carnet)*0.2
+        pagomaterias= pago + papeleria + carnet
+        calculodescuento= pagomaterias*0.2
+        descuentototal= pagomaterias - calculodescuento
         resultado = descuentototal.toFixed(2)
         resul.innerHTML = `El monto a pagar con el descuento del 20% es ${resultado}$ por la cantidad de ${i} materias inscritas`
         document.getElementById("divresultado").hidden = false;
